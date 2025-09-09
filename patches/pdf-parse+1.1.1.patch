@@ -1,0 +1,15 @@
+diff --git a/node_modules/pdf-parse/lib/pdf.js b/node_modules/pdf-parse/lib/pdf.js
+index 7a2b0e6..6295fc3 100644
+--- a/node_modules/pdf-parse/lib/pdf.js
++++ b/node_modules/pdf-parse/lib/pdf.js
+@@ -10,7 +10,4 @@
+ 
+ module.exports = PDF;
+ 
+-let FONT_ROW_RATIO = 1.2;
+-
+-//will be replaced by meta in build time
+-PDF(null, { '05-versions-space.pdf': FONT_ROW_RATIO });
+\ No newline at end of file
++let FONT_ROW_RATIO = 1.2;
+\ No newline at end of file

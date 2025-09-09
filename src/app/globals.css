@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 210 100% 97%;
+    --foreground: 215 25% 27%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    --primary: 207 74% 70%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 200 67% 90%;
+    --secondary-foreground: 207 74% 40%;
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 25% 55%;
+    --accent: 200 67% 83%;
+    --accent-foreground: 207 74% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 67% 83%;
+    --input: 0 0% 100%;
+    --ring: 207 74% 70%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 207 74% 70%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 22% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 207 74% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.flash-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.flash-card.is-flipped .flash-card-inner {
+  transform: rotateY(180deg);
+}
+.flash-card-front,
+.flash-card-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flash-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Mind Map Styling */
+.mind-map-node {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 2rem;
+    position: relative;
+}
+
+.mind-map-node::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 18px;
+    width: 20px;
+    height: 1px;
+    background-color: hsl(var(--border));
+}
+
+.mind-map-node-value {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    min-width: 100px;
+    text-align: center;
+}
+
+.mind-map-node-children {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.mind-map-node-children::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: hsl(var(--border));
+}
+
+.mind-map-container > .mind-map-node {
+    margin-left: 0;
+}
+.mind-map-container > .mind-map-node::before {
+    display: none;
+}
